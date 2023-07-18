@@ -48,7 +48,7 @@ class Product extends MyPDO {
           WHERE id = :id",
             [
                 "id" => $id,
-                "category_id" => $data['category_id'],
+                "category_id" => $data['cat_id'],
                 "title" => $data['title'],
                 "price" => isset($data['price']) ? $data['price'] : 10,
                 "description" => isset($data['descr']) ? $data['descr'] : "",

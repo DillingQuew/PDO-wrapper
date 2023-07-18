@@ -3,7 +3,7 @@ namespace database;
 use PDO;
 class MyPDO {
     protected static $instance;
-
+    protected function __clone() {}
     public static function getInstance() {
         if (empty(self::$instance)) {
             $default_options = [
@@ -23,8 +23,9 @@ class MyPDO {
             catch(PDOException $error) {
                 echo $error->getMessage();
             }
+        } else {
+            return self::$instance;
         }
-        return self::$instance;
     }
     private function __construct() {}
     public final static function run($sql, $args = NULL)
